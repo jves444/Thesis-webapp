@@ -1,21 +1,9 @@
 {
     "$schema": "https://railway.app/railway.schema.json",
     "build": {
-        "builder": "NIXPACKS",
-        "nixpacks": {
-            "config": {
-                "setupCmd": "python -m pip install --upgrade pip setuptools wheel",
-                "buildCmd": "pip install --no-cache-dir -r requirements.txt"
-            }
-        }
+        "builder": "NIXPACKS"
     },
     "deploy": {
-        "runtime": "V2",
-        "numReplicas": 1,
-        "restartPolicyType": "ON_FAILURE",
-        "variables": {
-            "FLASK_ENV": "production",
-            "PYTHON_VERSION": "3.10"
-        }
+        "restartPolicyType": "ON_FAILURE"
     }
 }
