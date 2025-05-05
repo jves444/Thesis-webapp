@@ -4,14 +4,18 @@
         "builder": "NIXPACKS",
         "nixpacks": {
             "config": {
-                "setupCmd": "python -m pip install --upgrade pip==23.1.2 setuptools==67.7.2 wheel==0.40.0",
+                "setupCmd": "python -m pip install --upgrade pip setuptools wheel",
                 "buildCmd": "pip install --no-cache-dir -r requirements.txt"
             }
         }
     },
     "deploy": {
-        "runtime": "PYTHON",
-        "pythonVersion": "3.10.13",
-        "numReplicas": 1
+        "runtime": "V2",
+        "numReplicas": 1,
+        "restartPolicyType": "ON_FAILURE",
+        "variables": {
+            "FLASK_ENV": "production",
+            "PYTHON_VERSION": "3.10"
+        }
     }
 }
